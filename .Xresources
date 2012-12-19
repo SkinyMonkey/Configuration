@@ -1,0 +1,9 @@
+xterm*Background: #242424
+xterm*Foreground: #CCCCCC
+xterm*font: *-terminus-*-*-*-20-*
+xterm*scrollBar: false
+
+irssi*Background: #242424
+irssi*Foreground: #CCCCCC
+irssi*font: *-terminus-*-*-*-20-*
+irssi*scrollBar: false

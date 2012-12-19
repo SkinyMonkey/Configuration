@@ -1,0 +1,68 @@
+# Read File Into Vector
+snippet readfile
+	std::vector<char> v;
+	if (FILE *${2:fp} = fopen(${1:"filename"}, "r")) {
+		char buf[1024];
+		while (size_t len = fread(buf, 1, sizeof(buf), $2))
+			v.insert(v.end(), buf, buf + len);
+		fclose($2);
+	}${3}
+# std::map
+snippet map
+	std::map<${1:key}, ${2:value}> map${3};
+# std::vector
+snippet vector
+	std::vector<${1:char}> v${2};
+# Namespace
+snippet ns
+	namespace ${1:`Filename('', 'my')`} {
+		${2}
+	} /* $1 */
+# Canonic class declaration
+snippet clas
+	class ${1:`Filename('$1', 'name')`}
+	{
+	public:
+		$1(${2:});
+		~$1();
+		$1(const $1&);
+		$1& operator=(const $1&);
+
+	private:
+		${3:/* data */}
+	};
+
+# Canonic class implementation
+snippet	canon
+	#include "${1:`Filename('$1', 'name')`}.hpp"
+
+	$1::$1()
+	{
+	  ;
+	}
+
+	$1::~$1()
+	{
+	  ;
+	}
+
+	$1::$1(const $1& ${2:})
+	{
+	  ;
+	}
+
+	$1&	$1::operator=(const $1& $2)
+	{
+	  if (this != &$2)
+	    {
+	      ;
+	    }
+	  return (*this);
+	}
+
+# Class scope
+snippet cl
+	${1:`Filename('$1', 'name')`}::${2:}
+# std::cout << << std::endl;
+snippet cout
+	std::cout << "${1:}" << std::endl;
